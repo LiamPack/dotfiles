@@ -16,17 +16,22 @@ sudo apt install -y \
      sbcl \
      chezscheme \
      bash-completion \
-     rsync
+     rsync \
+     nodejs \
+     npm \
+     texlive
 
 # miniconda install
 if [ ! -x "$(which conda)" ]; then
     cd /tmp \
         && wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
         && bash Miniconda3-latest-Linux-x86_64.sh
-fi 
+fi
 
 # rust install
-# curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+if [ ! -x "$(which cargo)" ]; then
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+fi
 
 ## quicklisp setup
 # curl -O https://beta.quicklisp.org/quicklisp.lisp
@@ -38,7 +43,7 @@ if [ ! -x "$(which julia)" ] ; then
         && wget https://julialang-s3.julialang.org/bin/linux/x64/1.5/julia-1.5.3-linux-x86_64.tar.gz \
         && tar -xvf julia-1.5.3-linux-x86_64.tar.gz \
         && mv julia-1.5.3-linux-x86_64 $HOME/bin/
-fi 
+fi
 
 # install emacs27
 if [ ! -x "$(which emacs)" ] ; then
@@ -51,3 +56,10 @@ if [ ! -x "$(which emacs)" ] ; then
         && make \
         && sudo make install
 fi
+
+# ripgrep install
+cd /tmp \
+   && curl -LO https://github.com/BurntSushi/ripgrep/releases/download/12.1.1/ripgrep_12.1.1_amd64.deb \
+   && sudo dpkg -i ripgrep_12.1.1_amd64.deb \
+   && sudo apt update \
+   && sudo apt install ripgrep

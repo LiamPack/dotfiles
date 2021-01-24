@@ -10,8 +10,11 @@ function doIt() {
           --exclude "package_setup.sh" \
           --exclude "README.md" \
           --exclude ".emacs.d/" \
+          --exclude ".gitmodules" \
+          --exclude ".gitignore" \
           -avh --no-perms . ~;
-    # ln -s .emacs.d $HOME/.emacs.d
+    ln -s $(pwd)/.emacs.d $HOME/.emacs.d
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
     source ~/.bash_profile
 }
 
