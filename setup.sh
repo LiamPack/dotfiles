@@ -11,7 +11,7 @@ function doIt() {
           --exclude "README.md" \
           --exclude ".emacs.d/" \
           -avh --no-perms . ~;
-    ln -s .emacs.d $HOME/.emacs.d
+    # ln -s .emacs.d $HOME/.emacs.d
     source ~/.bash_profile
 }
 

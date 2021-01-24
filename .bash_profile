@@ -31,5 +31,5 @@ if type _git &> /dev/null; then
 fi
 
 if [ -f /etc/bash_completion ]; then
-    . /etc/_bash_completion
+    . /etc/bash_completion
 fi
