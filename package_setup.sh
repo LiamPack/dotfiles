@@ -42,7 +42,7 @@ if [ ! -x "$(which julia)" ] ; then
     cd /tmp/ \
         && wget https://julialang-s3.julialang.org/bin/linux/x64/1.5/julia-1.5.3-linux-x86_64.tar.gz \
         && tar -xvf julia-1.5.3-linux-x86_64.tar.gz \
-        && mv julia-1.5.3-linux-x86_64 $HOME/bin/
+        && mv julia-1.5.3 $HOME/
 fi
 
 # install emacs27
