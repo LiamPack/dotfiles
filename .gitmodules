@@ -1,4 +1,3 @@
 [submodule ".emacs.d"]
-    path = .emacs.d
-	url = https://github.com/LiamPack/.emacs.d.git
-    branch = master
+           path = .emacs.d
+           url = https://github.com/LiamPack/.emacs.d.git

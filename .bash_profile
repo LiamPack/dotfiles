@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Add `~/bin` to the `$PATH`
-export PATH="$HOME/bin:$PATH";
+export PATH="$HOME/bin:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/miniconda3/bin:$PATH";
 
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.

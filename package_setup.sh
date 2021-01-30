@@ -22,6 +22,7 @@ sudo apt install -y \
      texlive \
      texinfo \
      fd-find \
+     tmux \
      ripgrep
 
 # miniconda install
@@ -51,18 +52,6 @@ fi
 
 # install emacs27
 if [ ! -x "$(which emacs)" ] ; then
-    cd /tmp/ \
-        && git clone https://git.savannah.gnu.org/git/emacs.git \
-        && cd emacs \
-        && git checkout emacs-27 \
-        && ./autogen.sh \
-        && ./configure \
-        && make \
-        && sudo make install
-fi
-
-if [ ! -x "$(which rg)" ] ; then
-    # ripgrep install
     sudo apt install -y autoconf automake autotools-dev bsd-mailx build-essential \
             diffstat gnutls-dev imagemagick libasound2-dev libc6-dev libdatrie-dev \
                 libdbus-1-dev libgconf2-dev libgif-dev libgnutls28-dev libgpm-dev libgtk2.0-dev \
@@ -78,9 +67,21 @@ if [ ! -x "$(which rg)" ] ; then
                                                         libsystemd-dev libwebkit2gtk-4.0-dev libx11-xcb-dev libxcb-dri2-0-dev \
                                                             libxcb-dri3-dev libxcb-glx0-dev libxcb-present-dev libxshmfence-dev \
                                                                 x11proto-composite-dev x11proto-core-dev x11proto-damage-dev \
-                                                                    x11proto-fixes-dev \
+                                                                    x11proto-fixes-dev
 
-    && cd /tmp \
+    cd /tmp/ \
+        && git clone https://git.savannah.gnu.org/git/emacs.git \
+        && cd emacs \
+        && git checkout emacs-27 \
+        && ./autogen.sh \
+        && ./configure \
+        && make \
+        && sudo make install
+fi
+
+if [ ! -x "$(which rg)" ] ; then
+    # ripgrep install
+    cd /tmp \
        && curl -LO https://github.com/BurntSushi/ripgrep/releases/download/12.1.1/ripgrep_12.1.1_amd64.deb \
        && sudo dpkg -i ripgrep_12.1.1_amd64.deb \
        && sudo apt update \
