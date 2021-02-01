@@ -87,3 +87,9 @@ if [ ! -x "$(which rg)" ] ; then
        && sudo apt update \
        && sudo apt install ripgrep
 fi
+
+if [ ! -x "$(which racket)" ]; then
+    sudo add-apt-repository ppa:plt/racket
+    sudo apt update
+    sudo apt install racket
+fi
