@@ -16,11 +16,11 @@ sudo apt install -y \
      rsync \
 
 # miniconda install
-#if [ ! -x "$(which conda)" ]; then
-#    cd /tmp \
-#        && wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
-#        && bash Miniconda3-latest-Linux-x86_64.sh
-#fi
+if [ ! -x "$(which conda)" ]; then
+   cd /tmp \
+       && wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
+       && bash Miniconda3-latest-Linux-x86_64.sh
+fi
 
 # rust install
 #if [ ! -x "$(which cargo)" ]; then
@@ -32,17 +32,17 @@ sudo apt install -y \
 # sbcl --load quicklisp.lisp
 
 # julia install
-#if [ ! -x "$(which julia)" ] ; then
-#    cd /tmp/ \
-#        && wget https://julialang-s3.julialang.org/bin/linux/x64/1.5/julia-1.5.3-linux-x86_64.tar.gz \
-#        && tar -xvf julia-1.5.3-linux-x86_64.tar.gz \
-#        && mv julia-1.5.3 $HOME/
-#fi
+if [ ! -x "$(which julia)" ] ; then
+   cd /tmp/ \
+       && wget https://julialang-s3.julialang.org/bin/linux/x64/1.5/julia-1.5.3-linux-x86_64.tar.gz \
+       && tar -xvf julia-1.5.3-linux-x86_64.tar.gz \
+       && mv julia-1.5.3 $HOME/
+fi
 
 # install emacs27
 if [ ! -x "$(which emacs)" ] ; then
     cd /tmp/ \
-        && git clone https://git.savannah.gnu.org/cgit/emacs.git \
+        && git clone https://git.savannah.gnu.org/git/emacs.git \
         && cd emacs \
         && git checkout emacs-27 \
         && ./autogen.sh \
