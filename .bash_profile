@@ -27,15 +27,6 @@ for option in autocd globstar; do
     shopt -s "$option" 2> /dev/null;
 done;
 
-# Enable tab completion for `g` by marking it as an alias for `git`
-if type _git &> /dev/null; then
-    complete -o default -o nospace -F _git g;
-fi
-
-if [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-fi
-
 vterm_printf(){
     if [ -n "$TMUX" ] && ([ "${TERM%%-*}" = "tmux" ] || [ "${TERM%%-*}" = "screen" ] ); then
         # Tell tmux to pass the escape sequences through
