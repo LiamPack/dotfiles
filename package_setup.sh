@@ -16,7 +16,7 @@ sudo apt install -y \
      bash-completion \
      rsync \
      # emacs installation necessities
-     libgnutls28-dev libtiff-dev libjpeg-dev libgif-dev libgccjit-10-dev libxpm-dev libpng-dev\
+     libgnutls28-dev libtiff-dev libjpeg-dev libgif-dev libgccjit-10-dev libxpm-dev libpng-dev libxml2-dev\
      sbcl
 
 # miniconda install
