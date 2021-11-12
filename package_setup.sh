@@ -15,20 +15,16 @@ sudo apt install -y \
      autoconf \
      bash-completion \
      rsync \
-     # emacs installation necessities
-     libgnutls28-dev libtiff-dev libjpeg-dev libgif-dev libgccjit-10-dev libxpm-dev libpng-dev libxml2-dev\
-     sbcl
+     tmux \
+     tree \
+     htop \
+     git
 
 # miniconda install
 # if [ ! -x "$(which conda)" ]; then
 #    cd /tmp \
 #        && wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
 #        && bash Miniconda3-latest-Linux-x86_64.sh
-# fi
-
-# # rust install
-# if [ ! -x "$(which cargo)" ]; then
-#     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 # fi
 
 ## quicklisp setup
@@ -45,10 +41,13 @@ sudo apt install -y \
 
 # install emacs28
 if [ ! -x "$(which emacs)" ] ; then
+    sudo apt install -Y libgnutls28-dev libtiff-dev libjpeg-dev libgif-dev libgccjit-10-dev libxpm-dev libpng-dev libxml2-dev;
     cd /tmp/ \
         && git clone https://github.com/emacs-mirror/emacs.git \
         && cd emacs \
         && git checkout emacs-28 \
+        && CFLAGS="-I/usr/lib/gcc/x86_64-linux/10/"\
+        && LDFLAGS="-L/usr/lib/x86_64-linux" \
         && ./autogen.sh \
         && ./configure --with-no-titlebar --with-x-toolkit=yes --with-native-compilation\
         && make -j8\
