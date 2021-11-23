@@ -20,7 +20,8 @@ sudo apt install -y \
      htop \
      git \
      i3 \
-     redshift
+     redshift \
+     graphviz
 
 # miniconda install
 # if [ ! -x "$(which conda)" ]; then
