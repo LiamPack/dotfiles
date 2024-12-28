@@ -3,6 +3,9 @@
 Todos:
 - Group miscellaneous `~/` config files in sub-directory, modify
   `rsync` in `setup.sh` accordingly
+- xfce configuration
+- xfce keybindings (kill `C-.` "emoji search." (Why is this bound by
+  default?))
 
 usages (self explanatory, but if I forget how to use bash):
 
