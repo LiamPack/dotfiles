@@ -1,6 +1,10 @@
 # Dotfiles
 
-usage: 
+Todos:
+- Group miscellaneous `~/` config files in sub-directory, modify
+  `rsync` in `setup.sh` accordingly
+
+usages (self explanatory, but if I forget how to use bash):
 
 ```bash
 bash setup.sh
