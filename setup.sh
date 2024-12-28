@@ -6,12 +6,9 @@ git pull origin main
 
 function doIt() {
     rsync --exclude ".git/" \
-          --exclude ".gitmodules" \
-          --exclude ".gitignore" \
           --exclude "setup.sh" \
           --exclude "package_setup.sh" \
           --exclude "README.md" \
-          --exclude ".emacs.d/" \
           -avh --no-perms . ~;
     ln -s $(pwd)/.emacs.d $HOME/.emacs.d
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm

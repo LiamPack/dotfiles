@@ -3,7 +3,6 @@ mkdir -p $HOME/bin
 
 export PATH=$HOME/bin:$PATH
 
-# good packages :)
 sudo apt install -y \
      build-essential \
      texinfo \
