@@ -1,19 +1,44 @@
-IMAPStore gmail-remote
+# cornell gmail
+IMAPAccount gmail
 Host imap.gmail.com
+UserCmd "gpg -q --for-your-eyes-only -d ~/.authinfo.gpg | awk -F ' ' '/gmail/ {print $(NF-2);exit; }'"
+PassCmd "gpg -q --for-your-eyes-only -d ~/.authinfo.gpg | awk -F ' ' '/gmail/ { print $NF; exit; }'"
 SSLType IMAPS
-AuthMechs LOGIN
-User liampacker@gmail.com
-PassCmd "pass email/liampacker@gmail.com"
+
+IMAPStore gmail-remote
+Account gmail
 
 MaildirStore gmail-local
-Path ~/.mail/gmail/
-Inbox ~/.mail/gmail/INBOX
 Subfolders Verbatim
+Path ~/.mail/gmail/
+Inbox ~/.mail/gmail/Inbox
 
 Channel gmail
-Master :gmail-remote:
-Slave :gmail-local:
-Create Both
-Expunge Both
-Patterns * 
+Far :gmail-remote:
+Near :gmail-local:
+Patterns *
+Sync All
+Create Near
+Remove Near
+Expunge Near
 SyncState *
+
+# IMAPStore gmail-remote
+# Host imap.gmail.com
+# SSLType IMAPS
+# AuthMechs LOGIN
+# User liampacker@gmail.com
+# PassCmd "pass email/liampacker@gmail.com"
+
+# MaildirStore gmail-local
+# Path ~/.mail/gmail/
+# Inbox ~/.mail/gmail/INBOX
+# Subfolders Verbatim
+
+# Channel gmail
+# Master :gmail-remote:
+# Slave :gmail-local:
+# Create Both
+# Expunge Both
+# Patterns * 
+# SyncState *
